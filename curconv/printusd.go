@@ -1,12 +1,10 @@
-package main
+package curconv
 
 import "fmt"
 
-func main() {
+//SayUsd выведет на экран сумму в долларах
+func SayUsd(rur float64) {
     const usd float64 = 63.69
-    var rur float64
-    fmt.Println("Введите сумму в рублях")
-    fmt.Scanln(&rur)
     var total float64 = rur/usd
     fmt.Printf("Сумма в долларах: %.02f\n", total)
 }
