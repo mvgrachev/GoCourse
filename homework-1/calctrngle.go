@@ -1,10 +1,9 @@
 package main
 
-import "GoCourse/triangle"
+import "GoCourse/homework-1/triangle"
 
 func main() {
-    var a float64
-    var b float64
+    var a, b float64
     triangle.GetLegs(&a, &b)
     triangle.CalcTriangle(a,b)
 }

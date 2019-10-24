@@ -1,6 +1,6 @@
 package main
 
-import "GoCourse/curconv"
+import "GoCourse/homework-1/curconv"
 
 func main() {
     var rur float64
