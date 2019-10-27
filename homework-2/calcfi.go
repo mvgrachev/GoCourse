@@ -9,7 +9,10 @@ func main() {
 	var n int
 	fmt.Println("Ввод количества чисел фибоначи:")
 	fmt.Scanln(&n)
+	calcfi(n)
+}
 
+func calcfi( n int ) {
 	a := big.NewInt(0)
 	b := big.NewInt(1)
 
