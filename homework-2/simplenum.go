@@ -5,6 +5,7 @@ import "fmt"
 func main() {
 	result := getSimpleNum()
 
+	fmt.Println(cap(result));
 	fmt.Println(result)
 }
 
@@ -24,8 +25,9 @@ func getSimpleNum() ([]int) {
 			if ( v > arraySimpleNum[ind] ) {
 				val := arraySimpleNum[ind]
 				if v%val == 0 {
-					arraySimpleNum = append(arraySimpleNum,arraySimpleNum[len(arraySimpleNum)-1]+1)
+					lastCurEl := arraySimpleNum[len(arraySimpleNum)-1]+1;
 					splice(&arraySimpleNum,index,1)
+					arraySimpleNum = append(arraySimpleNum,lastCurEl)
 					isComplete = 0
 				}
 			}
