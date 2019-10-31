@@ -10,11 +10,12 @@ func main() {
 	stack.Push("Два")
 	stack.Push("Три")
 
-	fmt.Println(stack.Pop())
-	fmt.Println(stack.Pop())
-
-	stack.Push("Четыре")
-
-	fmt.Println(stack.Pop())
-	fmt.Println(stack.Pop())
+	for {
+		if el, err := stack.Pop(); err != nil {
+			fmt.Println(err)
+			break
+		} else {
+			fmt.Println( el )
+		}
+	}
 }
