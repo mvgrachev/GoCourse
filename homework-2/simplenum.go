@@ -11,30 +11,31 @@ func main() {
 
 func getSimpleNum() ([]int) {
 	arraySimpleNum := make([]int,100)
-
 	p := 2
 	for i := 0; i < 100; i++ {
 		arraySimpleNum[i] = p
 		p++
 	}
 
-	outerLoop:
-	isComplete := 1	
-	for ind := 0; ind < len(arraySimpleNum); ind++ {
-		for index, v := range arraySimpleNum {
-			if ( v > arraySimpleNum[ind] ) {
-				val := arraySimpleNum[ind]
-				if v%val == 0 {
-					lastCurEl := arraySimpleNum[len(arraySimpleNum)-1]+1;
-					splice(&arraySimpleNum,index,1)
-					arraySimpleNum = append(arraySimpleNum,lastCurEl)
-					isComplete = 0
+	isComplete := 0
+	for {
+		isComplete = 1	
+		for ind := 0; ind < len(arraySimpleNum); ind++ {
+			for index, v := range arraySimpleNum {
+				if ( v > arraySimpleNum[ind] ) {
+					val := arraySimpleNum[ind]
+					if v%val == 0 {
+						lastCurEl := arraySimpleNum[len(arraySimpleNum)-1]+1
+						splice(&arraySimpleNum,index,1)
+						arraySimpleNum = append(arraySimpleNum,lastCurEl)
+						isComplete = 0
+					}
 				}
 			}
 		}
-	}
-	if isComplete == 0 {
-		goto outerLoop
+		if isComplete == 1 {
+			break
+		}
 	}
 
 	return arraySimpleNum
