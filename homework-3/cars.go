@@ -5,23 +5,40 @@ import (
 	"GoCourse/homework-3/basecars"
 )
 
+func totalCapacity(cars ...basecars.AllCar) float64 {
+	var capacity float64
+	for _, c := range cars {
+		if c.Capacity != nil {
+			capacity += c.Capacity()
+		}
+	}
+
+	return capacity
+}
+
 func main() {
-	var passengerCar = basecars.PassengerCar{BaseCar: basecars.BaseCar{Brand: "Opel", OpenWindows: false, YearManufacture: 2012, StateEngine: "started"}, PassCapacity: 1100}
-	var aPC basecars.AllCar
-	aPC = &passengerCar
-	var truckCar = basecars.TruckCar{BaseCar: basecars.BaseCar{Brand: "Man", OpenWindows: false, YearManufacture: 1995, StateEngine: "stoped"}, TruckCapacity: 100500}
-	var aTC basecars.AllCar
-	aTC = &truckCar
-	fmt.Println(aPC)
-	fmt.Println(aTC)
-	aPC.StopEngine()
-	aTC.StartEngine()
-	fmt.Println(passengerCar.PassCapacity)
-	fmt.Println(truckCar.TruckCapacity)
-	passengerCar.PassCapacity = 900
-	truckCar.TruckCapacity = 50500
-	fmt.Println(passengerCar.PassCapacity)
-	fmt.Println(truckCar.TruckCapacity)
+	passengerCar := basecars.NewPassengerCar()
+	passengerCar.SetBrand("Opel")	
+	passengerCar.SetCapacity(1000)	
+	
+	passengerCar1 := basecars.NewPassengerCar()
+	passengerCar1.SetBrand("Mazda")	
+	passengerCar1.SetCapacity(600)	
+	
+	truckCar := basecars.NewTruckCar()
+	truckCar.SetBrand("MAN")	
+	truckCar.SetCapacity(100000)	
+	
+	truckCar1 := basecars.NewTruckCar()
+	truckCar1.SetBrand("Volvo")	
+	truckCar1.SetCapacity(100000)	
+	
 	fmt.Println(passengerCar)
+	fmt.Println(passengerCar1)
 	fmt.Println(truckCar)
+	fmt.Println(truckCar1)
+
+	fmt.Println("Объем багажников легковых авто: ", totalCapacity(&passengerCar,&passengerCar1))
+	fmt.Println("Объем кузовов грузовых авто: ", totalCapacity(&truckCar,&truckCar1))
+	fmt.Println("Общий объем багажников всех авто: ", totalCapacity(&passengerCar,&passengerCar1,&truckCar,&truckCar1))
 }
