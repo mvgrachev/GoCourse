@@ -2,6 +2,18 @@ package basecars
 
 type PassengerCar struct {
 	BaseCar
-	PassCapacity float64
-	PassFill float64
+	passCapacity float64
+	passFill float64
+}
+
+func NewPassengerCar() PassengerCar {  
+	return PassengerCar{}
+}
+
+func (pc PassengerCar) Capacity() float64 {
+        return pc.passCapacity
+}
+
+func ( pc *PassengerCar ) SetCapacity(passCapacity float64) {
+        pc.passCapacity = passCapacity
 }
