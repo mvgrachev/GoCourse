@@ -1,13 +1,21 @@
 package basecars
 
+import "fmt"
 type PassengerCar struct {
 	BaseCar
 	passCapacity float64
 	passFill float64
 }
 
-func NewPassengerCar() PassengerCar {  
-	return PassengerCar{}
+func NewPassengerCar(brand string) PassengerCar { 
+	bc := BaseCar{ 
+		brand: brand,
+		yearManufacture: 0,
+		stateEngine: "start",
+		stateWindows: "open",
+		power: 100,
+	}
+	return PassengerCar{ bc, 0, 0 }
 }
 
 func (pc PassengerCar) Capacity() float64 {

@@ -17,11 +17,12 @@ func totalCapacity(cars ...basecars.AllCar) float64 {
 }
 
 func main() {
-	passengerCar := basecars.NewPassengerCar()
+	passengerCar := basecars.NewPassengerCar("Toyota")
+	fmt.Println(passengerCar)
 	passengerCar.SetBrand("Opel")	
 	passengerCar.SetCapacity(1000)	
 	
-	passengerCar1 := basecars.NewPassengerCar()
+	passengerCar1 := basecars.NewPassengerCar("Test")
 	passengerCar1.SetBrand("Mazda")	
 	passengerCar1.SetCapacity(600)	
 	
