@@ -17,7 +17,7 @@ func main() {
 	}(naturals)
 
 	// возведение в квадрат
-	go func(naturals chan int) {
+	go func(naturals chan int,squares chan int) {
 		for {
 			x, ok := <-naturals
 			
@@ -27,7 +27,7 @@ func main() {
 			squares <- x * x
 		}
 		close(squares)
-	}(naturals)
+	}(naturals,squares)
 
 	// печать
 	for {
